@@ -15,11 +15,10 @@ class App extends Component {
   };
 
   selectMovie = (id) => {
-    console.log(id)
     const selectedMovie = this.state.movies.filter(movie => {
       return movie.id === id
     })
-    console.log(selectedMovie)
+
     this.setState({ selectedMovie: selectedMovie })
   }
 
@@ -29,7 +28,7 @@ class App extends Component {
       <main>
         <Nav />
         { !this.state.selectedMovie.length && <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>}
-        { this.state.selectedMovie.length && <DisplayView /> } 
+        { this.state.selectedMovie.length && <DisplayView selectedMovie={this.state.selectedMovie} /> } 
       </main>
     )
   }
