@@ -1,7 +1,9 @@
 import React from 'react'
+import Image from '../Image/Image'
+import Details from '../Details/Details'
 import './DisplayView.css'
 
-const DisplayView = ({ movies }) => {
+const DisplayView = ({ selectedMovie }) => {
     return (
         <section>
             <Image />
