@@ -1,0 +1,12 @@
+.movie-card {
+    border: 2px solid orange;
+    height: 200px;
+    width: 133px;
+    margin: 10px;
+}
+
+.movie-poster {
+    object-fit: fill;
+    max-height: 100%;
+}
+

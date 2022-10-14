@@ -3,8 +3,11 @@ import './Movie.css';
 
 const Movie = ({ id, poster }) => {
     return (
-        <div>
-            <img src={poster} />
+        <div className='movie-card'>
+            <img 
+                className='movie-poster' 
+                src={poster} 
+            />
         </div>
     )
 }

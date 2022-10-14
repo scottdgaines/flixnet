@@ -3,16 +3,18 @@ import Movie from '../Movie/Movie';
 import './Movies.css';
 
 const Movies = ({ movies }) => {
-    const movieCard = movies.movies.map(movie => {
+    console.log(movies)
+    const movieCard = movies.map(movie => {
         return (
             <Movie 
                 id={movie.id}
-                poster={movie.posterPath}
+                poster={movie.poster_path}
+                key={movie.id}
             />
         )
     })
     return (
-        <div>
+        <div className='movie-container'>
             {movieCard}
         </div> 
     )
