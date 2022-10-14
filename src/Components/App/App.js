@@ -8,15 +8,21 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      movieSelected: false
     };
   };
 
   render() {
+    /* If (this.state.movieSelected) {
+       return 
+    } */
+
     return (
       <main>
         <Nav />
-        <Movies movies={this.state.movies} />
+        { !this.state.movieSelected && <Movies movies={this.state.movies} /> }
+        { this.state.movieSelected && <DisplayView /> }
       </main>
     )
   }
