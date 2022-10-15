@@ -4,7 +4,7 @@ import Details from '../Details/Details'
 import './DisplayView.css'
 
 const DisplayView = ({ selectedMovie }) => {
-    console.log(selectedMovie)
+
     return (
         <section className='display-view-container'>
             <Image poster={selectedMovie[0].poster_path} />

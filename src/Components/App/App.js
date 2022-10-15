@@ -27,8 +27,10 @@ class App extends Component {
     return (
       <main>
         <Nav />
-        { !this.state.selectedMovie.length && <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>}
-        { this.state.selectedMovie.length && <DisplayView selectedMovie={this.state.selectedMovie} /> } 
+        { this.state.selectedMovie.length 
+          ? <DisplayView selectedMovie={this.state.selectedMovie} /> 
+          : <Movies movies={this.state.movies} selectMovie={this.selectMovie}/> 
+        }
       </main>
     )
   }
