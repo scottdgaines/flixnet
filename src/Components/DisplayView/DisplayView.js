@@ -3,7 +3,7 @@ import Image from '../Image/Image'
 import Details from '../Details/Details'
 import './DisplayView.css'
 
-const DisplayView = ({ selectedMovie }) => {
+const DisplayView = ({ selectedMovie, returnHome }) => {
 
     return (
         <section className='display-view-container'>
@@ -13,7 +13,9 @@ const DisplayView = ({ selectedMovie }) => {
                 rating={selectedMovie[0].average_rating} 
                 releaseDate={selectedMovie[0].release_date} 
             />
-            <button className='home-button'>Home</button>
+            <button 
+                className='home-button'
+                onClick={returnHome}>Home</button>
         </section>
     )
 }

@@ -22,13 +22,17 @@ class App extends Component {
     this.setState({ selectedMovie: selectedMovie })
   }
 
+  returnHome = () => {
+    this.setState({ selectedMovie: [] })
+  }
+
   render() {
     
     return (
       <main>
         <Nav />
         { this.state.selectedMovie.length 
-          ? <DisplayView selectedMovie={this.state.selectedMovie} /> 
+          ? <DisplayView selectedMovie={this.state.selectedMovie} returnHome={this.returnHome} /> 
           : <Movies movies={this.state.movies} selectMovie={this.selectMovie}/> 
         }
       </main>
