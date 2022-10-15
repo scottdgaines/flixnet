@@ -2,17 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 import Movies from '../Movies/Movies';
 import Nav from '../Nav/Nav';
-import movieData from '../../movieData'
 import DisplayView from '../DisplayView/DisplayView'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
-      selectedMovie: []
+      movies: [],
+      selectedMovie: [],
+      error: ''
     };
   };
+
+  componentDidMount() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(movies => this.setState({ movies: movies.movies }))
+    .catch(error => this.setState({ error: error.message }))
+  }
 
   selectMovie = (id) => {
     const selectedMovie = this.state.movies.filter(movie => {
@@ -27,14 +34,15 @@ class App extends Component {
   }
 
   render() {
-    
     return (
       <main>
         <Nav />
+        { this.state.movies.length ? null : <p>Loading...</p> }
         { this.state.selectedMovie.length 
-          ? <DisplayView selectedMovie={this.state.selectedMovie} returnHome={this.returnHome} /> 
+          ? <DisplayView id={this.state.selectedMovie[0].id} returnHome={this.returnHome} /> 
           : <Movies movies={this.state.movies} selectMovie={this.selectMovie}/> 
         }
+        { this.state.error ? <p>There was an error! Please try again.</p> : null }
       </main>
     )
   }
