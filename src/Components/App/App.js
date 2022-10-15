@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Movies from '../Movies/Movies';
 import Nav from '../Nav/Nav';
-// import movieData from '../../movieData'
 import DisplayView from '../DisplayView/DisplayView'
 
 class App extends Component {
@@ -33,12 +32,11 @@ class App extends Component {
   }
 
   render() {
-    
     return (
       <main>
         <Nav />
         { this.state.selectedMovie.length 
-          ? <DisplayView selectedMovie={this.state.selectedMovie} returnHome={this.returnHome} /> 
+          ? <DisplayView id={this.state.selectedMovie[0].id} returnHome={this.returnHome} /> 
           : <Movies movies={this.state.movies} selectMovie={this.selectMovie}/> 
         }
       </main>
