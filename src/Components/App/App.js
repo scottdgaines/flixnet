@@ -9,7 +9,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: []
+      selectedMovie: [],
+      error: ''
     };
   };
 
@@ -17,6 +18,7 @@ class App extends Component {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(response => response.json())
     .then(movies => this.setState({ movies: movies.movies }))
+    .catch(error => this.setState({ error: error.message }))
   }
 
   selectMovie = (id) => {
@@ -35,10 +37,12 @@ class App extends Component {
     return (
       <main>
         <Nav />
+        { this.state.movies.length ? null : <p>Loading...</p> }
         { this.state.selectedMovie.length 
           ? <DisplayView id={this.state.selectedMovie[0].id} returnHome={this.returnHome} /> 
           : <Movies movies={this.state.movies} selectMovie={this.selectMovie}/> 
         }
+        { this.state.error ? <p>There was an error! Please try again.</p> : null }
       </main>
     )
   }

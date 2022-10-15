@@ -2,7 +2,6 @@ import React from 'react'
 import './Details.css'
 
 const Details = ({ title, tagline, genres, rating, releaseDate, overview, runtime, budget, revenue }) => {
-    {console.log('genre', genres)}
     return (
         <div>
             <h3>{title}</h3>

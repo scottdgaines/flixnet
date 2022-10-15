@@ -8,7 +8,8 @@ class DisplayView extends Component {
     constructor() {
         super();
         this.state = {
-            selectedMovie: {}
+            selectedMovie: {},
+            error: ''
         }
     }
 
@@ -16,12 +17,14 @@ class DisplayView extends Component {
         fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
         .then(response => response.json())
         .then(data => this.setState({ selectedMovie: data.movie }))
-        .catch(error => console.log('error', error.message))
+        .catch(error => this.setState({ error: error.message }))
     }
 
     render() {
         return (
             <section className='display-view-container'>
+                { this.state.selectedMovie ? null : <p>Loading...</p> }
+                { this.state.error ? <p>There was an error! Please try again.</p> : null }
                 <Image poster={this.state.selectedMovie.poster_path} />
                 <Details 
                     title={this.state.selectedMovie.title} 
@@ -33,8 +36,6 @@ class DisplayView extends Component {
                     runtime={this.state.selectedMovie.runtime}
                     budget={this.state.selectedMovie.budget}
                     revenue={this.state.selectedMovie.revenue}
-            
-
                 />
                 <button 
                     className='home-button'
