@@ -1,0 +1,9 @@
+/* .poster-container {
+    border: 1px solid green;
+
+} */
+
+.display-poster {
+    max-height: 300px;
+    /* max-width: 133px; */
+}
