@@ -3,7 +3,7 @@ import './Image.css'
 
 const Image = ({ poster }) => {
     return (
-        <div className='poster-container'>
+        <div>
             <img className='display-poster' src={poster}></img>
         </div>
     )

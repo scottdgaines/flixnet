@@ -1,10 +1,11 @@
 import React from 'react';
 import './Nav.css'
+import logo from '../../Assets/logo1.png'
 
 const Nav = () => {
     return (
         <nav>
-            <h1 className='header'>FlixNet</h1>
+            <img src={logo} alt='flixnet' className='nav-logo'/>
             {/* search bar input */}
         </nav>
     )

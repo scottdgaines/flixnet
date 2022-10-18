@@ -1,14 +1,25 @@
 .display-view-container {
     align-items: center;
-    border: 2px solid pink;
+    color: white;
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    height: 100vh;
+    margin: 0 auto;
+    overflow-y: scroll;
+    padding: 15px;
+    text-align: center;
     width: 100vh;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.display-view-container::-webkit-scrollbar {
+    display: none;
 }
 
 .home-button {
     border-radius: 8px;
+    cursor: pointer;
     margin: 0 auto;
     width: 100px;
 }
