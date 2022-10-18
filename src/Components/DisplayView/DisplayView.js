@@ -25,7 +25,7 @@ class DisplayView extends Component {
             <section className='display-view-container'>
                 { this.state.selectedMovie ? null : <p>Loading...</p> }
                 { this.state.error ? <p>There was an error! Please try again.</p> : null }
-                <Image poster={this.state.selectedMovie.poster_path} />
+                <Image poster={this.state.selectedMovie.backdrop_path} />
                 <Details 
                     title={this.state.selectedMovie.title} 
                     tagline={this.state.selectedMovie.tagline}
