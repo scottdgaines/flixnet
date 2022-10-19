@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Movies from '../Movies/Movies';
 import Nav from '../Nav/Nav';
@@ -38,11 +39,30 @@ class App extends Component {
       <main>
         <Nav />
         { this.state.movies.length ? null : <p>Loading...</p> }
-        { this.state.selectedMovie.length 
+        {/* { this.state.selectedMovie.length 
           ? <DisplayView id={this.state.selectedMovie[0].id} returnHome={this.returnHome} /> 
-          : <Movies movies={this.state.movies} selectMovie={this.selectMovie}/> 
-        }
+          : <Movies /> 
+        } */}
         { this.state.error ? <p>There was an error! Please try again.</p> : null }
+        <Route 
+          exact path='/' 
+          render={() =>  
+            <Movies   
+              movies={this.state.movies} 
+              selectMovie={this.selectMovie} 
+            />
+          } 
+        />
+        <Route 
+          exact path='/:movieId'
+          render={({ match }) => {
+            const movieId = parseInt(match.params.movieId)
+            return <DisplayView 
+              id={movieId} 
+              returnHome={this.returnHome}
+            /> 
+          }}
+        />
       </main>
     )
   }
