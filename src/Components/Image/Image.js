@@ -4,7 +4,11 @@ import './Image.css'
 const Image = ({ poster }) => {
     return (
         <div>
-            <img className='display-poster' src={poster}></img>
+            <img 
+                className='display-poster' 
+                src={poster}
+                alt="Image from the movie"
+            />
         </div>
     )
 }

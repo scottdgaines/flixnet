@@ -9,6 +9,7 @@ const Movie = ({ id, poster, selectMovie }) => {
             <img 
                 className='movie-poster' 
                 src={poster} 
+                alt="Vertical movie poster"
                 onClick={() => selectMovie(id)}
             />
         </Link>
