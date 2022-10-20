@@ -1,6 +1,5 @@
 import React from 'react';
 import Movie from '../Movie/Movie';
-import { NavLink } from 'react-router-dom';
 import './Movies.css';
 
 const Movies = ({ movies, selectMovie }) => {
@@ -13,7 +12,6 @@ const Movies = ({ movies, selectMovie }) => {
                     key={movie.id}
                     selectMovie={selectMovie}
                 />
-     
         )
     })
     return (

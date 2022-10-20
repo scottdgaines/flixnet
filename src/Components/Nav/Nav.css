@@ -1,8 +1,10 @@
 nav {
-    height: 25vh;
+    display: flex;
+    height: 30vh;
 }
 
 .nav-logo {
     height: auto;
-    width: 100%;
+    margin: 0 auto;
+    width: auto;
 }
