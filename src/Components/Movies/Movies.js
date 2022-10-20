@@ -5,12 +5,13 @@ import './Movies.css';
 const Movies = ({ movies, selectMovie }) => {
     const movieCard = movies.map(movie => {
         return (
-            <Movie 
-                id={movie.id}
-                poster={movie.poster_path}
-                key={movie.id}
-                selectMovie={selectMovie}
-            />
+        
+                <Movie 
+                    id={movie.id}
+                    poster={movie.poster_path}
+                    key={movie.id}
+                    selectMovie={selectMovie}
+                />
         )
     })
     return (

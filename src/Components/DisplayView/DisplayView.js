@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import Image from '../Image/Image'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Image from '../Image/Image';
 import Details from '../Details/Details'
-import './DisplayView.css'
+import './DisplayView.css';
 
 // const DisplayView = ({ selectedMovie, returnHome }) => {
 class DisplayView extends Component {
@@ -37,10 +38,12 @@ class DisplayView extends Component {
                     budget={this.state.selectedMovie.budget}
                     revenue={this.state.selectedMovie.revenue}
                 />
-                <button 
-                    className='home-button'
-                    onClick={this.props.returnHome}
-                >Home</button>
+                <Link to="/">
+                    <button 
+                        className='home-button'
+                        onClick={this.props.returnHome}>Home
+                    </button>
+                </Link>
             </section>
         )
     }
