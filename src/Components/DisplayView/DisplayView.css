@@ -8,7 +8,7 @@
     overflow-y: scroll;
     padding: 15px;
     text-align: center;
-    width: 100vh;
+    width: 70vw;
     scrollbar-width: none;  /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
 }
