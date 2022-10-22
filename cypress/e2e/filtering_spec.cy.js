@@ -10,7 +10,10 @@ describe('Search Feature flows', () => {
 
   it('Should show the movie poster matching the search query', () => {
     cy.get('.movie-container').should('be.visible')
-      .get('img[src="https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg"]').should('be.visible')
+      .get('[href="/337401"] > .movie-poster').should('be.visible')
+
+    cy.get('input').type('Mulans')
+    cy.get('img[class="movie-poster"]').its('length').should('be.equal', 40)
   })
 
   it('Should be able to click the poster to display the movie\'s details', () => {

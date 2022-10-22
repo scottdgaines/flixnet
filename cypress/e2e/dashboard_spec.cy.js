@@ -28,7 +28,7 @@ describe('Flixnet dashboard flows', () => {
       }
     );
     cy.visit('http://localhost:3000/')
-    cy.get('p[class="error-message"]').should('be.visible').should('contain', 'There was an error! Please try again.')
+    cy.get('p[class="error-message"]').should('be.visible').should('contain', 'There was an error (Failed to fetch)! Please try again.')
   })
 
   it('Should be able to see a collection of movies', () => {

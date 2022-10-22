@@ -19,10 +19,6 @@ describe('Display View flows', () => {
     cy.get('p[class="detail-view-error-message"]').should('be.visible').should('contain', 'There was an error! Please try again.')
   })
 
-  // it('Should show a loading message before rendering data', () => {
-  //   cy.get('p[class="detail-view-loading-message"]').should('exist').should('contain', 'Loading...')
-  // })
-
   it('Should render a movie poster and some text information', () => {
     cy.get('img[class="display-poster"]').should('be.visible')
       .get('h3[class="detail-title"]').contains('Mulan')

@@ -38,6 +38,7 @@ class App extends Component {
 
   displayFilteredMovie = (titleQuery) => {
     const filteredMovie = this.state.movies.filter(movie => {
+
       return movie.title.toLowerCase() === titleQuery.toLowerCase()
     })
     
@@ -48,27 +49,35 @@ class App extends Component {
     return (
       <main>
         <Nav /> 
-          <Filter 
-            displayFilteredMovie={this.displayFilteredMovie}
-          />
+         
         { this.state.movies.length ? null : <p className='loading-message'>Loading...</p> }
-        { this.state.error ? <p className='error-message'>There was an error! Please try again.</p> : null }
+        { this.state.error ? <p className='error-message'>There was an error {`(${this.state.error})`}! Please try again.</p> : null }
         { this.state.filteredMovies.length ?
           <Route 
             exact path='/' 
-            render={() =>  
-              <Movies   
-                movies={this.state.filteredMovies} 
-                selectMovie={this.selectMovie} 
-              /> } 
+            render={() => 
+              <div>
+                <Filter 
+                    displayFilteredMovie={this.displayFilteredMovie}
+                /> 
+                <Movies   
+                  movies={this.state.filteredMovies} 
+                  selectMovie={this.selectMovie} 
+                /> 
+              </div>} 
           /> :
           <Route 
             exact path='/' 
             render={() =>  
-              <Movies   
-                movies={this.state.movies} 
-                selectMovie={this.selectMovie} 
-              /> } 
+              <div>
+                <Filter 
+                  displayFilteredMovie={this.displayFilteredMovie}
+                />
+                <Movies   
+                  movies={this.state.movies} 
+                  selectMovie={this.selectMovie} 
+                />
+              </div> } 
           /> }
         <Route 
           exact path='/:movieId'
