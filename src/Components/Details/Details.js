@@ -6,11 +6,11 @@ const Details = ({ title, tagline, genres, rating, releaseDate, overview, runtim
         <div>
             <h3 className='detail-title'>{title}</h3>
             { tagline ? <p className='detail-text italic'>{tagline}</p> : null }
-            <p className='detail-text'>Genre(s): {genres}</p>
+            { genres ? <p className='detail-text'>Genre(s): {genres.join(', ')}</p> : null } 
             <p className='detail-text'>Viewers gave it {Number(rating).toFixed(2)} / 10</p>
             <p className='detail-text'>Released in {String(releaseDate).split('-')[0]}</p>
-            <p className='detail-text'>{overview}</p>
-            <p className='detail-text'>Runtime: {runtime} minutes</p>
+            { overview ? <p className='detail-text'>{overview}</p> : null } 
+            { runtime ? <p className='detail-text'>Runtime: {runtime} minutes</p> : null } 
             { budget ? <p className='detail-text'>Budget: ${budget}</p> : null }
             { revenue ? <p className='detail-text'>Box Office Revenue: ${revenue}</p> : null }
         </div>
