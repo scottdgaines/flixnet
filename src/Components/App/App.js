@@ -47,12 +47,12 @@ class App extends Component {
   render = () => {
     return (
       <main>
-        { this.state.movies.length ? null : <p>Loading...</p> }
-        { this.state.error ? <p>There was an error! Please try again.</p> : null }
-        <Nav />
-        <Filter 
-          displayFilteredMovie={this.displayFilteredMovie}
-        />
+        <Nav /> 
+          <Filter 
+            displayFilteredMovie={this.displayFilteredMovie}
+          />
+        { this.state.movies.length ? null : <p className='loading-message'>Loading...</p> }
+        { this.state.error ? <p className='error-message'>There was an error! Please try again.</p> : null }
         { this.state.filteredMovies.length ?
           <Route 
             exact path='/' 
