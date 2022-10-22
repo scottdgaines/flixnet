@@ -55,29 +55,21 @@ class App extends Component {
         />
         { this.state.filteredMovies.length ?
           <Route 
-          exact path='/' 
-          render={() =>  
-            <Movies   
-              movies={this.state.filteredMovies} 
-              selectMovie={this.selectMovie} 
-            /> } /> :
-            <Route 
+            exact path='/' 
+            render={() =>  
+              <Movies   
+                movies={this.state.filteredMovies} 
+                selectMovie={this.selectMovie} 
+              /> } 
+          /> :
+          <Route 
             exact path='/' 
             render={() =>  
               <Movies   
                 movies={this.state.movies} 
                 selectMovie={this.selectMovie} 
-              /> } /> }
-        {/* <Route 
-          exact path='/' 
-          render={() =>  
-            <Movies   
-              movies={this.state.movies} 
-              selectMovie={this.selectMovie} 
-              filteredMovies={this.state.filteredMovies}
-            />
-          } 
-        /> */}
+              /> } 
+          /> }
         <Route 
           exact path='/:movieId'
           render={({ match }) => {
