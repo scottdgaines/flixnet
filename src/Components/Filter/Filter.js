@@ -10,16 +10,16 @@ export default class Filter extends Component {
     }
 
     handleChange = event => {
-        console.log("target", event.target.value)
-        event.preventDefault()
+        this.setState({ titleQuery: event.target.value }, () => this.props.displayFilteredMovie(this.state.titleQuery) )
+    }
 
-        this.setState({ titleQuery: event.target.value })
-        this.props.displayFilteredMovie(this.state.titleQuery)
+    submitHandler = event => {
+        event.preventDefault()
     }
 
     render = () => {
         return (
-            <form className='search-bar'>
+            <form className='search-bar' onSubmit={event => this.submitHandler(event)}>
                 <input
                     type='text'
                     placeholder='Search by title...'

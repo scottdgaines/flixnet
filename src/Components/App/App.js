@@ -37,21 +37,19 @@ class App extends Component {
   }
 
   displayFilteredMovie = (titleQuery) => {
-    console.log("query", titleQuery)
     const filteredMovie = this.state.movies.filter(movie => {
       return movie.title.toLowerCase() === titleQuery.toLowerCase()
     })
     
     this.setState({ filteredMovies: filteredMovie })
-    console.log("filter", filteredMovie)
   }
 
   render = () => {
     return (
       <main>
-        <Nav />
         { this.state.movies.length ? null : <p>Loading...</p> }
         { this.state.error ? <p>There was an error! Please try again.</p> : null }
+        <Nav />
         <Filter 
           displayFilteredMovie={this.displayFilteredMovie}
         />
