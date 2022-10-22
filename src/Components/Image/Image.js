@@ -7,7 +7,7 @@ const Image = ({ poster }) => {
             <img 
                 className='display-poster' 
                 src={poster}
-                alt="Image from the movie"
+                alt="Poster from the movie"
             />
         </div>
     )

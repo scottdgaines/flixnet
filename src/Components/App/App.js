@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Movies from '../Movies/Movies';
 import Nav from '../Nav/Nav';
+import Filter from '../Filter/Filter'
 import DisplayView from '../DisplayView/DisplayView'
 
 class App extends Component {
@@ -11,11 +12,12 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: [],
+      filteredMovies: [],
       error: ''
     };
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(response => response.json())
     .then(movies => this.setState({ movies: movies.movies }))
@@ -34,25 +36,50 @@ class App extends Component {
     this.setState({ selectedMovie: [] })
   }
 
-  render() {
+  displayFilteredMovie = (titleQuery) => {
+    console.log("query", titleQuery)
+    const filteredMovie = this.state.movies.filter(movie => {
+      return movie.title.toLowerCase() === titleQuery.toLowerCase()
+    })
+    
+    this.setState({ filteredMovies: filteredMovie })
+    console.log("filter", filteredMovie)
+  }
+
+  render = () => {
     return (
       <main>
         <Nav />
         { this.state.movies.length ? null : <p>Loading...</p> }
-        {/* { this.state.selectedMovie.length 
-          ? <DisplayView id={this.state.selectedMovie[0].id} returnHome={this.returnHome} /> 
-          : <Movies /> 
-        } */}
         { this.state.error ? <p>There was an error! Please try again.</p> : null }
-        <Route 
+        <Filter 
+          displayFilteredMovie={this.displayFilteredMovie}
+        />
+        { this.state.filteredMovies.length ?
+          <Route 
+          exact path='/' 
+          render={() =>  
+            <Movies   
+              movies={this.state.filteredMovies} 
+              selectMovie={this.selectMovie} 
+            /> } /> :
+            <Route 
+            exact path='/' 
+            render={() =>  
+              <Movies   
+                movies={this.state.movies} 
+                selectMovie={this.selectMovie} 
+              /> } /> }
+        {/* <Route 
           exact path='/' 
           render={() =>  
             <Movies   
               movies={this.state.movies} 
               selectMovie={this.selectMovie} 
+              filteredMovies={this.state.filteredMovies}
             />
           } 
-        />
+        /> */}
         <Route 
           exact path='/:movieId'
           render={({ match }) => {
