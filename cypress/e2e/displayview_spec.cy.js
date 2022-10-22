@@ -1,9 +1,23 @@
 describe('Display View flows', () => {
 
-beforeEach(() => {
-  cy.visit('http://localhost:3000')
-    .get(':nth-child(2) > .movie-poster').click()
-});
+  beforeEach(() => {
+    cy.visit('http://localhost:3000')
+      .get(':nth-child(2) > .movie-poster').click()
+  });
+
+  it('Should show an error message if no data was fetched', () => {
+    cy.intercept(
+      {
+        method: 'GET',
+        url: '/api/v2/movies/337401'
+      },
+      {
+        forceNetworkError: true,
+      }
+    );
+    cy.visit('http://localhost:3000/337401')
+    cy.get('p[class="detail-view-error-message"]').should('be.visible').should('contain', 'There was an error! Please try again.')
+  })
 
   it('Should render a movie poster and some text information', () => {
     cy.get('img[class="display-poster"]').should('be.visible')

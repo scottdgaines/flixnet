@@ -1,0 +1,5 @@
+.loading-message, .error-message {
+    color: white;
+    font-size: larger;
+    text-align: center;
+}

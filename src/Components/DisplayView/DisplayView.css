@@ -23,3 +23,7 @@
     margin: 0 auto;
     width: 100px;
 }
+
+.detail-view-loading-message {
+    color: white;
+}
