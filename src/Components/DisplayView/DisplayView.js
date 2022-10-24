@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Image from '../Image/Image';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import Image from '../Image/Image'
 import Details from '../Details/Details'
-import './DisplayView.css';
+import './DisplayView.css'
 
-// const DisplayView = ({ selectedMovie, returnHome }) => {
 class DisplayView extends Component {
     constructor() {
-        super();
+        super()
         this.state = {
             selectedMovie: {},
             error: ''
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
         .then(response => response.json())
         .then(data => this.setState({ selectedMovie: data.movie }))
         .catch(error => this.setState({ error: error.message }))
     }
 
-    render() {
+    render = () => {
         return (
             <section className='display-view-container'>
                 <Image poster={this.state.selectedMovie.backdrop_path} />

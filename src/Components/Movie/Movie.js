@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Movie.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './Movie.css'
 
 const Movie = ({ id, poster, selectMovie }) => {
 

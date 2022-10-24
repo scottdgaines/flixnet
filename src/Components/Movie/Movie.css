@@ -1,15 +1,15 @@
 .movie-card {
     height: 200px;
-    width: 133px;
     margin: 10px;
+    width: 133px;
 }
 
 .movie-card:hover {
     transform: scale(1.1);
-    transition: 0.2s ease ;
+    transition: 0.2s ease;
 }
 
 .movie-poster {
-    object-fit: fill;
     max-height: 100%;
+    object-fit: fill;
 }

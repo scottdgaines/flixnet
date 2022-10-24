@@ -1,6 +1,6 @@
-import React from 'react';
-import Movie from '../Movie/Movie';
-import './Movies.css';
+import React from 'react'
+import Movie from '../Movie/Movie'
+import './Movies.css'
 
 const Movies = ({ movies, selectMovie }) => {
     const movieCard = movies.map(movie => {
@@ -13,6 +13,7 @@ const Movies = ({ movies, selectMovie }) => {
                 />
         )
     })
+    
     return (
         <div className='movie-container'>
             {movieCard}
