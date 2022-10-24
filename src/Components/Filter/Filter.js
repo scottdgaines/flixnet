@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Filter.css'
 
-export default class Filter extends Component {
+class Filter extends Component {
     constructor() {
         super()
         this.state = {
@@ -30,3 +30,5 @@ export default class Filter extends Component {
         )
     }
 }
+
+export default Filter

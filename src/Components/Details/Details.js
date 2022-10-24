@@ -11,8 +11,8 @@ const Details = ({ title, tagline, genres, rating, releaseDate, overview, runtim
             <p className='detail-text'>Released in {String(releaseDate).split('-')[0]}</p>
             { overview ? <p className='detail-text'>{overview}</p> : null } 
             { runtime ? <p className='detail-text'>Runtime: {runtime} minutes</p> : null } 
-            { budget ? <p className='detail-text'>Budget: ${budget}</p> : null }
-            { revenue ? <p className='detail-text'>Box Office Revenue: ${revenue}</p> : null }
+            { budget ? <p className='detail-text'>Budget: ${budget.toLocaleString()}</p> : null }
+            { revenue ? <p className='detail-text'>Box Office Revenue: ${revenue.toLocaleString()}</p> : null }
         </div>
     )
 }

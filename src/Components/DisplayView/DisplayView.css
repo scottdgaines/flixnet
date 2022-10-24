@@ -24,6 +24,7 @@
     width: 100px;
 }
 
-.detail-view-loading-message {
+.detail-view-loading-message,
+.detail-view-error-message {
     color: white;
 }
