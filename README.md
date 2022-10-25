@@ -1,4 +1,4 @@
-# [FlixNet](https://scottdgaines.github.io/flixnet/)
+# [FlixNet](https://scottdgaines.github.io/rancid-tomatillos/)
 
 [Project Board](https://trello.com/b/oqkABnBA/rancid-tomatillos) | [Wireframe and Architecture](https://miro.com/app/board/uXjVPNrwEjs=/) | [Retro Log](https://gist.github.com/danalchapman/5faee417be89a60c3ee82156e77844d6)
 
