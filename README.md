@@ -1,6 +1,6 @@
-# [FlixNet](https://scottdgaines.github.io/rancid-tomatillos/)
+# FlixNet
 
-[Project Board](https://trello.com/b/oqkABnBA/rancid-tomatillos) | [Wireframe and Architecture](https://miro.com/app/board/uXjVPNrwEjs=/) | [Retro Log](https://gist.github.com/danalchapman/5faee417be89a60c3ee82156e77844d6)
+[Deployed Link](https://scottdgaines.github.io/rancid-tomatillos/) | [Project Board](https://trello.com/b/oqkABnBA/rancid-tomatillos) | [Wireframe and Architecture](https://miro.com/app/board/uXjVPNrwEjs=/) | [Retro Log](https://gist.github.com/danalchapman/5faee417be89a60c3ee82156e77844d6)
 
 ## Overview
 Not sure what to watch? Curious what your favorite film's box office revenue was? Looking for a particular movie? FlixNet is a dashboard for all your movie-browsing needs.
